@@ -70,3 +70,12 @@ Cubren la entidad (validaciones) y el CRUD completo sobre el repositorio en memo
 
 <img width="1920" height="1023" alt="Xsd7wpIkXR" src="https://github.com/user-attachments/assets/d28a8521-b240-46af-a66e-f27d92c6545c" />
 
+<img width="1920" height="1024" alt="ui0nP8jQGR" src="https://github.com/user-attachments/assets/7832408e-6beb-4d09-8053-92c1aa67cf7a" />
+<img width="1920" height="1023" alt="e38uSl9MD8" src="https://github.com/user-attachments/assets/e743a376-a387-472d-9696-94ccff38a680" />
+
+<img width="1915" height="1028" alt="beNuna8Fhu" src="https://github.com/user-attachments/assets/1da3822e-20fd-4050-9201-307f3a82e625" />
+<img width="1920" height="1021" alt="giSata6ZDz" src="https://github.com/user-attachments/assets/bad27b08-d20d-4117-af83-6c36be7c9696" />
+<img width="1920" height="1029" alt="iqnyhE9uoO" src="https://github.com/user-attachments/assets/e135968e-6836-40c3-8be5-413c76ddf36c" />
+
+
+
