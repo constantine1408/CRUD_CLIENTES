@@ -65,3 +65,8 @@ php tests/run.php
 ```
 
 Cubren la entidad (validaciones) y el CRUD completo sobre el repositorio en memoria.
+
+#PRUEBAS REALIZADAS
+
+<img width="1920" height="1023" alt="Xsd7wpIkXR" src="https://github.com/user-attachments/assets/d28a8521-b240-46af-a66e-f27d92c6545c" />
+
