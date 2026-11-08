@@ -1,0 +1,430 @@
+:root {
+    color-scheme: light dark;
+
+    /* Color (modo claro) */
+    --bg: #eef2f0;
+    --surface: #ffffff;
+    --surface-alt: #f5f8f7;
+    --ink: #18262b;
+    --muted: #5d6e73;
+    --line: #dbe3e1;
+    --primary: #0f6b63;
+    --primary-strong: #0a504a;
+    --primary-soft: #e3f2ef;
+    --on-primary: #ffffff;
+    --danger: #b3261e;
+    --danger-soft: #fdeceb;
+    --ok: #14663f;
+    --ok-soft: #e6f5ec;
+    --focus: #1d9a8e;
+    --shadow: 0 1px 2px rgba(24, 38, 43, 0.06), 0 12px 32px -12px rgba(24, 38, 43, 0.18);
+
+    /* Tipografía y medidas */
+    --font: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", sans-serif;
+    --radius: 12px;
+    --radius-sm: 8px;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #101a1c;
+        --surface: #172427;
+        --surface-alt: #1c2c30;
+        --ink: #e6efee;
+        --muted: #93a7aa;
+        --line: #2a3b3e;
+        --primary: #3bb7a8;
+        --primary-strong: #5fd0c2;
+        --primary-soft: #1a3a3a;
+        --on-primary: #08201e;
+        --danger: #ff8a80;
+        --danger-soft: #3a1f1e;
+        --ok: #7fd8a6;
+        --ok-soft: #17332a;
+        --focus: #5fd0c2;
+        --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 12px 32px -12px rgba(0, 0, 0, 0.6);
+    }
+}
+
+/* ---------------------------------------------------------------- base */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: clamp(1rem, 4vw, 3rem) 1rem;
+    font-family: var(--font);
+    font-size: 1rem;
+    line-height: 1.55;
+    color: var(--ink);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2 {
+    margin: 0;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+}
+
+h1 {
+    font-size: clamp(1.6rem, 3.2vw, 2.1rem);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+}
+
+h2 {
+    margin: 2.2rem 0 1rem;
+    font-size: 1.2rem;
+    font-weight: 650;
+}
+
+a {
+    color: var(--primary);
+}
+
+:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------- panel */
+
+.panel {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: clamp(1.25rem, 3.5vw, 2.5rem);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-top: 5px solid var(--primary);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.panel>header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1.75rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--line);
+}
+
+/* Logo institucional como cabecera (imagen decorativa: el título sigue en el h1). */
+.panel>header::before {
+    content: "";
+    flex: 0 0 auto;
+    width: 240px;
+    max-width: 100%;
+    aspect-ratio: 1024 / 368;
+    background: url("assets/logo-uniandes.png") no-repeat left center / contain;
+}
+
+.subtitulo {
+    margin: 0.35rem 0 0;
+    color: var(--muted);
+}
+
+/* ------------------------------------------------------------ mensajes */
+
+.aviso,
+.errores {
+    margin: 1.25rem 0 0;
+    padding: 0.8rem 1rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid transparent;
+    border-left-width: 4px;
+    font-weight: 500;
+}
+
+.aviso {
+    color: var(--ok);
+    background: var(--ok-soft);
+    border-color: var(--ok);
+}
+
+.errores {
+    margin-bottom: 0;
+    padding-left: 1rem;
+    list-style: none;
+    color: var(--danger);
+    background: var(--danger-soft);
+    border-color: var(--danger);
+}
+
+.errores li+li {
+    margin-top: 0.25rem;
+}
+
+/* ---------------------------------------------------------- formulario */
+
+.formulario {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1.1rem 1.25rem;
+    padding: clamp(1rem, 2.5vw, 1.5rem);
+    background: var(--surface-alt);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.campo label {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.opcional {
+    font-weight: 400;
+    color: var(--muted);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="search"] {
+    width: 100%;
+    min-height: 2.75rem;
+    padding: 0.55rem 0.8rem;
+    font: inherit;
+    color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+input::placeholder {
+    color: var(--muted);
+    opacity: 0.8;
+}
+
+input:hover {
+    border-color: var(--muted);
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--focus);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--focus) 30%, transparent);
+}
+
+.acciones {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    padding-top: 0.25rem;
+}
+
+/* ------------------------------------------------------------- botones */
+
+.boton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.75rem;
+    padding: 0.55rem 1.25rem;
+    font: inherit;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid transparent;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: background-color 0.15s, border-color 0.15s, transform 0.05s;
+}
+
+.boton:active {
+    transform: translateY(1px);
+}
+
+.boton--primario {
+    color: var(--on-primary);
+    background: var(--primary);
+}
+
+.boton--primario:hover {
+    background: var(--primary-strong);
+}
+
+.boton--secundario {
+    color: var(--ink);
+    background: var(--surface);
+    border-color: var(--line);
+}
+
+.boton--secundario:hover {
+    border-color: var(--muted);
+    background: var(--surface-alt);
+}
+
+/* ------------------------------------------------------------ búsqueda */
+
+.busqueda {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.65rem;
+    margin-bottom: 1rem;
+}
+
+.busqueda input {
+    flex: 1 1 260px;
+    width: auto;
+}
+
+/* --------------------------------------------------------------- tabla */
+
+.tabla-contenedor {
+    overflow-x: auto;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+}
+
+.tabla {
+    width: 100%;
+    min-width: 900px;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+.tabla th,
+.tabla td {
+    padding: 0.7rem 0.85rem;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.tabla thead th {
+    position: sticky;
+    top: 0;
+    font-size: 0.85rem;
+    font-weight: 650;
+    color: var(--muted);
+    background: var(--surface-alt);
+    border-bottom: 1px solid var(--line);
+    white-space: nowrap;
+}
+
+.tabla tbody td {
+    border-bottom: 1px solid var(--line);
+}
+
+.tabla tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.tabla tbody tr:hover {
+    background: var(--primary-soft);
+}
+
+/* ID: discreto y alineado */
+.tabla td:first-child {
+    width: 3.5rem;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+}
+
+/* Nombre completo: es lo primero que se busca con la vista */
+.tabla td:nth-child(2) {
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* Dirección: texto libre, necesita ancho para no partirse en muchas líneas */
+.tabla td:nth-child(6) {
+    min-width: 11rem;
+}
+
+/* Cédula y teléfono: dígitos de igual ancho */
+.tabla td:nth-child(3),
+.tabla td:nth-child(5) {
+    font-variant-numeric: tabular-nums;
+}
+
+.vacio {
+    padding: 2rem 1rem !important;
+    text-align: center !important;
+    color: var(--muted);
+}
+
+/* ---------------------------------------------------- acciones por fila */
+
+/* La celda conserva su comportamiento de tabla; los hijos se alinean en línea. */
+.acciones-fila {
+    white-space: nowrap;
+}
+
+.acciones-fila form {
+    display: inline-block;
+    margin: 0 0 0 0.35rem;
+    vertical-align: middle;
+}
+
+.acciones-fila a,
+.enlace-peligro {
+    vertical-align: middle;
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.25rem;
+    padding: 0 0.75rem;
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: background-color 0.15s, border-color 0.15s;
+}
+
+.acciones-fila a {
+    color: var(--primary);
+}
+
+.acciones-fila a:hover {
+    background: var(--surface);
+    border-color: var(--primary);
+}
+
+.enlace-peligro {
+    color: var(--danger);
+    background: none;
+}
+
+.enlace-peligro:hover {
+    background: var(--danger-soft);
+    border-color: var(--danger);
+}
+
+/* ---------------------------------------------------------- responsive */
+
+@media (max-width: 600px) {
+    .panel {
+        border-radius: var(--radius-sm);
+    }
+
+    .acciones .boton {
+        flex: 1 1 100%;
+    }
+
+    .busqueda .boton {
+        flex: 1 1 auto;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+    }
+}
